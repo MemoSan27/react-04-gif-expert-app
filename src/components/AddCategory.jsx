@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GifExpertApp } from '../GifExpertApp';
 
-export const AddCategory = ({addNewCat}) => {
+export const AddCategory = ({onNewCategory}) => {
 
   const [ inputValue, setInputValue] = useState('')  
   
@@ -15,8 +15,9 @@ export const AddCategory = ({addNewCat}) => {
         event.preventDefault();
         if( inputValue.trim().length <= 1) return;
 
-        addNewCat( categories => [ inputValue, ...categories]);
+        //addNewCat( categories => [ inputValue, ...categories]);
         setInputValue('');
+        onNewCategory( inputValue.trim() );
        
        
   }
