@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExpertApp = () => {
 
@@ -21,30 +22,21 @@ export const GifExpertApp = () => {
  
   return (
     <>
-        {/*Titulo*/}
         <h1>GifExpertApp</h1>
-
-        {/*Input*/}
-        <AddCategory 
-          //addNewCat={ setCategories }
-          onNewCategory={ value => onAddCategory(value) }
-        />
-
-        {/*Listado de gifs*/}
        
-        <ol>
-             { categories.map( category => {
-                return <li key={ category }>
-                               { category } 
-                       </li>
-                }) 
-             }
-             {/* <li>ABC</li> */}
-         
-        </ol>
-
-        
-            {/*Gif Item*/}
+        <AddCategory 
+            onNewCategory={ value => onAddCategory(value) }
+        />
+           
+       
+        { categories.map( category =>  (//Como solo es un return, no se necesitan las llaves ni el return
+              <GifGrid 
+              key={ category } 
+              category={ category } />
+            )) 
+        }
+   
+            
     </>
   )
 }
